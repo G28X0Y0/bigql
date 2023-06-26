@@ -1,0 +1,35 @@
+type Org {
+    id: ID
+    name: String
+    department: Department
+}
+
+type Department {
+    id: ID
+    name: String
+    org: Org
+    employee: Employee
+}
+
+type Employee {
+    id: ID
+    name: String
+    department: Department
+    phone: String
+
+}
+
+#Root query
+
+type Query {
+    getDepartments(count: Int, offset: Int): [Department]
+}
+
+type Mutation {
+    createDepartment(name: String, org: String, employee: String) : Department
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}
