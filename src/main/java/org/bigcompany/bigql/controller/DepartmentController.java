@@ -25,7 +25,6 @@ public class DepartmentController {
     public Department department(Department department) {return departmentDao.getDepartment(department.getId()); }
 
     @QueryMapping
-    //TODO: Fix this 'Could not resolve parameter [0] in public java.util.List<org.bigcompany.bigql.model.Department> org.bigcompany.bigql.controller.DepartmentController.getDepartments(int): No suitable resolver'
     public List<Department> getDepartments() {return departmentDao.getDepartments(); }
 
     @MutationMapping
