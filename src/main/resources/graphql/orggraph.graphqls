@@ -26,10 +26,5 @@ type Query {
 }
 
 type Mutation {
-    createDepartment(name: String, org: String, employee: String) : Department
-}
-
-schema {
-    query: Query
-    mutation: Mutation
+    createDepartment(id: String, name: String, org: String, employee: String) : Department
 }
