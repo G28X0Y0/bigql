@@ -26,7 +26,7 @@ public class DepartmentController {
 
     @QueryMapping
     //TODO: Fix this 'Could not resolve parameter [0] in public java.util.List<org.bigcompany.bigql.model.Department> org.bigcompany.bigql.controller.DepartmentController.getDepartments(int): No suitable resolver'
-    public List<Department> getDepartments(@Argument Integer count) {return departmentDao.getDepartments(count); }
+    public List<Department> getDepartments() {return departmentDao.getDepartments(); }
 
     @MutationMapping
     public Department createDepartment(@RequestBody @Argument String name, @Argument String orgId, @Argument String employeeId) {

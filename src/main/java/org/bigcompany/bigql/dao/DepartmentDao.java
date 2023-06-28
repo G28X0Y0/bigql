@@ -10,9 +10,8 @@ public class DepartmentDao {
 
     public DepartmentDao(List<Department> departments) {this.departments = departments;}
 
-    public List<Department> getDepartments(Integer count){
+    public List<Department> getDepartments(){
         return departments.stream()
-                .limit(count)
                 .collect(Collectors.toList());
     }
 
