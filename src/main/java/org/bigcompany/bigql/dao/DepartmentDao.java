@@ -22,14 +22,34 @@ public class DepartmentDao {
                 .orElseThrow(RuntimeException::new);
     }
 
-    public List<Department> getDepartmentsInOrg(String org){
-        return departments.stream()
-                .filter(department -> org.equals(department.getOrgId()))
-                .collect(Collectors.toList());
-    }
-
     public void createDepartment(Department department) {
         departments.add(department);
     }
+
+    public Department updateDepartment(Department department) {
+        try{
+            Department departmentToUpdate = getDepartment(department.getId());
+            departmentToUpdate.setName(department.getName());
+            departmentToUpdate.setOrgId(department.getOrgId());
+            departmentToUpdate.setEmployee(department.getEmployee());
+            return departmentToUpdate;
+        } catch (Exception e) {
+            System.out.println("Error updating department: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public boolean deleteDepartment(String id) {
+        String query = "mutation"
+        try{
+            Department departmentToDelete = getDepartment(id);
+            departments.remove(departmentToDelete);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error deleting department: " + e.getMessage());
+            return false;
+        }
+    }
+
 }
 

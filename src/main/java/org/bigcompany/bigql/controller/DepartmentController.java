@@ -38,4 +38,24 @@ public class DepartmentController {
         return department;
     }
 
+    //TODO: Complete this method
+    @MutationMapping
+    public Department updateDepartment(@RequestBody @Argument String id, @Argument String name, @Argument String orgId, @Argument String employeeId) {
+        Department department = new Department();
+        department.setId(id);
+        department.setName(name);
+        department.setOrgId(orgId);
+        department.setEmployee(employeeId);
+        departmentDao.updateDepartment(department);
+        return department;
+    }
+
+    //TODO: Complete this method
+    @MutationMapping
+    public boolean deleteDepartment(@RequestBody @Argument String id) {
+        return departmentDao.deleteDepartment(id);
+    }
+
+
+
 }

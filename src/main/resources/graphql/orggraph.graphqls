@@ -1,14 +1,14 @@
 type Org {
     id: ID
     name: String
-    department: Department
+    department: [Department]
 }
 
 type Department {
     id: ID
     name: String
     org: Org
-    employee: Employee
+    employee: [Employee]
 }
 
 type Employee {
@@ -24,6 +24,7 @@ type Employee {
 type Query {
     getDepartments(count: Int, offset: Int): [Department]
 }
+
 
 type Mutation {
     createDepartment(id: String, name: String, org: String, employee: String) : Department
